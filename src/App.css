@@ -1,38 +1,149 @@
+/* Ensure the background image covers the entire screen */
+body {
+  background-image: url('fwm.jpeg'); /* Background image */
+  background-size: cover; /* Make the image cover the entire screen */
+  background-position: center; /* Center the image */
+  background-attachment: fixed; /* Fix the background image to the screen */
+  margin: 0;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+}
+
+/* App container for centralized content */
 .App {
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 90%; /* Responsive width */
+  max-width: 1000px; /* Maximum width for large screens */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Title styling */
+h1 {
+  font-size: 2.5rem;
+  color: #4CAF50; /* Green color */
+  font-weight: bold;
+  margin-bottom: 20px;
+  background-color: white;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Subtitle or food list header styling */
+h2 {
+  font-size: 1.8rem;
+  color: #2C3E50; /* Dark blue */
+  margin-bottom: 20px;
+  background-color: white;
+  padding: 8px 15px;
+  display: inline-block;
+  border-radius: 8px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Styling for the notification box */
+.notification, .in-app-notification {
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 8px;
+  margin: 5px;
+  width: auto;
+}
+
+/* Styling for the food list container */
+.food-list-container {
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Styling for the list of food items */
+.food-list {
+  background-color: rgba(255, 255, 255, 0.9); /* White background */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px; /* Maximum width for large screens */
+  margin: 0 auto;
+}
+
+.food-list li {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9; /* Light gray background for each item */
+  transition: background-color 0.3s ease;
+}
+
+.food-list li:hover {
+  background-color: #f0f0f0; /* Light hover effect */
+}
+
+.food-list li.fresh {
+  color: green;
+}
+
+.food-list li.wasted {
+  color: red;
+}
+
+.food-list li.consumed {
+  color: gray;
+}
+
+/* Button styling */
+button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+  background-color: #4CAF50;
   color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #45a049;
 }
 
-@keyframes App-logo-spin {
+/* Notification styles */
+.in-app-notification {
+  background-color: #ffcc00;
+  color: #333;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  text-align: center;
+  z-index: 999;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.in-app-notification {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
   from {
-    transform: rotate(0deg);
+    top: -50px;
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    top: 0;
+    opacity: 1;
   }
 }
